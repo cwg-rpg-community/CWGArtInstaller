@@ -1,0 +1,10 @@
+* text=auto
+
+*.cs      text diff=csharp
+*.csproj  text eol=crlf
+*.sln     text eol=crlf
+*.pubxml  text eol=crlf
+*.manifest text eol=crlf
+
+# .reg files are UTF-16 and are embedded in the .exe byte-for-byte: never convert them.
+*.reg     -text

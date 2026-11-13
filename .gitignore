@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+
+# NuGet
+*.nupkg
+packages/
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# OS / OneDrive clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+*.tmp

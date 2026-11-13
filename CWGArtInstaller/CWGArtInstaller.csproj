@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- .NET Framework 4.8 ships with Windows 10/11, so players don't need to install a runtime. -->
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>CWGArtInstaller</RootNamespace>
+    <AssemblyName>CWGArtInstaller</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="WizardTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <!--
+    The assets are compiled INTO the .exe as embedded resources.
+    Nothing is copied to the output folder, so players only see CWGArtInstaller.exe.
+  -->
+  <ItemGroup>
+    <None Remove="assets\**" />
+    <EmbeddedResource Include="assets\EnableWC3LocalFiles.reg" LogicalName="CWGArtInstaller.Assets.EnableWC3LocalFiles.reg" />
+    <EmbeddedResource Include="assets\DisableWC3LocalFiles.reg" LogicalName="CWGArtInstaller.Assets.DisableWC3LocalFiles.reg" />
+    <EmbeddedResource Include="assets\download_url.txt" LogicalName="CWGArtInstaller.Assets.download_url.txt" />
+  </ItemGroup>
+
+</Project>
